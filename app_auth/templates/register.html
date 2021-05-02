@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %} Création compte {% endblock %}
+
+{% block content %}
+
+<div class="container mb-5 mt-5">
+    <div class="row">
+         
+        <form action="" method="POST" style="margin-bottom: 66px;" novalidate> {% csrf_token %}
+            <div class="card col-md-3" style="background-color: rgba(0, 0, 0, 0.045); margin-left: 500px;">
+                <div class="card-header text-center"> <i class="fas fa-user-lock"></i> Création de compte</div>
+                <div class="card-body">  
+                                      
+                    <label for="id_username">Nom d'utilisateur</label> 
+                    {{forms.username}}           
+                        {% if forms.username.errors %}
+                            {% for error in forms.username.errors %}
+                                <div class="div-error-{{ forms.username.name }}">
+                                    <small class="text-danger" style="font-size: 12px;"> Champ de saisie obligatoire </small>
+                                </div>
+                            {% endfor %}
+                        {% endif %}                       
+                    <div class="mb-3"></div>
+                    <label for="id_pwd">Mot de passe</label>  
+                    {{forms.pwd}}                                 
+                        {% if forms.pwd.errors %}
+                            {% for error in forms.pwd.errors %}
+                                <div class="div-error-{{ forms.pwd.name }}">
+                                    <small class="text-danger" style="font-size: 12px;"> Champ de saisie obligatoire </small>
+                                </div> 
+                            {% endfor %}
+                        {% endif %}  
+                    <div class="mb-3"></div>
+                    <label for="id_email">Email adresse</label>  
+                    {{forms.email}}                                 
+                        {% if forms.email.errors %}
+                            {% for error in forms.email.errors %}
+                                <div class="div-error-{{ forms.email.name }}">
+                                    <small class="text-danger" style="font-size: 12px;"> Champ de saisie obligatoire </small>
+                                </div> 
+                            {% endfor %}
+                        {% endif %} 
+
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-info btn-block">Creer</button>
+                </div>
+            </div>
+            
+        </form>         
+    </div>   
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+    <script>
+        $(document).ready(function(){
+        $('input').keyup(function(){
+            let textSaisi = $(this).val();
+            let attrName = $(this).attr('name');
+            let validatorElement = ".div-error-"+attrName;
+            if(textSaisi === ""){
+                if(!$(this).hasClass('is-invalid')){
+                    $(this).addClass('is-invalid');
+                    $(validatorElement).show();
+                }
+            } else {
+                $(this).removeClass('is-invalid');
+                $(validatorElement).hide();
+            }
+        })
+    })
+    </script>
+{% endblock %}

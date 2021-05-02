@@ -1,0 +1,76 @@
+
+  <!-- Navbar -->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark shadow-2" style="background-color: darkcyan;">
+    <!-- Container wrapper -->
+    <div class="container">
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="{% url 'dashboard1' %}" >Dashboard</a>
+  
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'my-hotel1' %}">Mes hotels</a>
+          </li>
+          
+          
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link text-white" href=""> {{ user.username }} </a>
+            </li>
+            {% endif %}
+
+            <li class="nav-item me-3 me-lg-0 dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-mdb-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-user text-white"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% if user.is_authenticated %}
+                        <li><a class="dropdown-item" href="{% url 'logout1' %}">Déconnexion</a></li>
+                    {% endif %}
+                </ul>
+              </li>
+
+          </ul>
+
+       
+        <!-- Left links -->
+
+        
+        <!-- Search form -->
+
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+

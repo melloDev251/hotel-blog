@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <h3 class="mt-3">Listes de Recherches</h3>
+        <hr class="mb-3">
+        {% for item in searchs_hotel %}
+
+            <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+                <div class="card mb-5 p-2" style="background-color: rgba(0, 0, 0, 0.04);" >
+                  <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          
+                    {% if item.image == "http://default" %}
+                      <a href="{% url 'detail' item.id %}">
+                        <img src="{% static 'img/casa.jpg' %}" class="img-fluid" style="height: 200px; width: 320px;"/>
+                      </a>
+                    {% else %}
+                      <a href="{% url 'detail' item.id %}">
+                        <img src="{{ item.image.url }}" class="img-fluid" style="height: 200px; width: 320px;" />
+                      </a>
+                    {% endif %}
+          
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title"> <a href="{% url 'detail' item.id %}" class="text-info"> {{ item.title }} </a>
+                    </h5>
+                    <p class="card-text"> {{ item.desc|truncatewords:8 }} </p>
+                    <p class="card-text" style="font-size: 12px;"> Publier il y a {{ item.created_at|timesince }} </p>
+                    <a href="{% url 'detail' item.id %}" class="btn btn-light">Plus d'Infos</a>
+                  </div>
+                </div>
+              </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

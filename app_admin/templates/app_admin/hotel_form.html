@@ -1,0 +1,26 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-5" style="background-color: rgba(4, 85, 71, 0.048);">
+                    <div class="card-body">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <p style="font-size: 30px;">Modification de l'hotel :  ({{ object }}) </p>
+                            <hr class="" style="margin-top: -1rem;">
+                            {{ form }}
+                            <br><br>
+                            <button class="btn btn-warning text-white">Modifier l'hotel</button>
+                            <a class="btn btn-danger" href="{% url 'my-hotel1' %}">Retour</a>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

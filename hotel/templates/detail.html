@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h4 class="mt-4">Detail Hotel</h4>
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img src="{{ hotels.image.url }}" class="img-fluid" style="height: 500px; width: 850px;" />
+            </div>
+            <h4 class="mt-2">• {{ hotels.title }}</h4>
+            <p>{{ hotels.desc }}</p>
+        </div>
+        <div class="col-md-4 mt-4" >
+            <h4>Hotels en relations</h4>
+            <div class="row">
+                {% for hot in her %}
+                {% if hot.id != hotels.id %}
+                    <div class="col-md-7">
+                        {% if hot.image != "http://default" %}
+                            <a href="{% url 'detail' hot.id %}">
+                                <img src="{{ hot.image.url }}" class="img-fluid mb-3" style="height: 150px; width: 250px;" />
+                            </a>
+                        {% else %}
+                            <a href="{% url 'detail' hot.id %}">
+                                <img src="{% static 'img/casa.jpg' %}" class="img-fluid mb-3" style="height: 150px; width: 250px;"/>
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-5">
+                        <strong> <a href="{% url 'detail' hot.id %}" class="text-info"> {{ hot.title }} </a> </strong> <br>
+                        {{ hot.desc|truncatewords:10 }}
+                    </div>
+                    <hr style="border: 1px solid;">
+                {% endif %}                   
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

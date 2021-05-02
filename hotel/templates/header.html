@@ -29,7 +29,7 @@
           </li>
           {% endif %}
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="{% url 'contact1' %}">Contact-Us</a>
           </li>
           <!-- Navbar dropdown -->
         </ul>
@@ -42,7 +42,7 @@
 
         <span class="vertical-line me-3"></span>
         <!-- Search form -->
-        <form class="d-flex input-group w-auto" action="{% url 'search' %}" style="margin-right: 40px;">
+        <form class="d-flex input-group w-auto" action="{% url 'search1' %}" style="margin-right: 40px;">
           <input
             name="hotel"
             type="search"

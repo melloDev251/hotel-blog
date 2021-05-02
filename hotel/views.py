@@ -18,3 +18,6 @@ def search(request):
     search_hotel = Hotel.objects.filter(title__contains=query)
     context = {"searchs_hotel": search_hotel}
     return render(request, "search.html", context)
+
+def contact(request):
+    return render(request, "contact.html")

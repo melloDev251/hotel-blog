@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from hotel.views import home, detail, search
+from hotel.views import home, detail, search, contact
 
 from django.conf.urls.static import static
 from django.conf import settings
@@ -24,7 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name="home"),
     path('hotel/<int:id_hotel>', detail, name="detail"),
-    path('hotel/recherche', search, name="search"),
+    path('hotel/recherche', search, name="search1"),
+    path('contact/', contact, name="contact1"),
     path('auth/', include("app_auth.urls")),
     path('my-admin/', include("app_admin.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

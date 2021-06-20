@@ -14,7 +14,7 @@ class Hotel(models.Model):
     title = models.CharField(max_length=50)
     categorie = models.ForeignKey(Categorie, on_delete=models.CASCADE)
     desc = models.TextField()
-    image = models.ImageField(upload_to="Media", null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 

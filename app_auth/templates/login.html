@@ -25,8 +25,10 @@
                                     <small class="text-danger" style="font-size: 12px;"> Champ de saisie obligatoire </small>
                                 </div>
                             {% endfor %}
-                        {% endif %}                       
+                        {% endif %}  
+
                     <div class="mb-3"></div>
+
                     <label for="id_pwd">Mot de passe</label>  
                     {{forms.pwd}}                                 
                         {% if forms.pwd.errors %}
@@ -57,11 +59,13 @@
         $(document).ready(function(){
         $('input').keyup(function(){
             let textSaisi = $(this).val();
+            
             let attrName = $(this).attr('name');
             let validatorElement = ".div-error-"+attrName;
             if(textSaisi === ""){
                 if(!$(this).hasClass('is-invalid')){
                     $(this).addClass('is-invalid');
+
                     $(validatorElement).show();
                 }
             } else {

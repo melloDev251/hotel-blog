@@ -8,25 +8,29 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title> {% block title %} Hotel Blog Mada {% endblock %} </title>
     <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="{% static 'img/AppImageLauncher.ico' %}" type="image/x-icon" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <!-- MDB -->
-    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" /> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
 
     <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" /> -->
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
     <style>
-        .vertical-line{
+        .vertical-line {
             border-left: 2px solid;
             display: inline-block;
             height: 40px;
             color: rgba(0, 0, 0, 0.05);
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
     </style>
 
@@ -40,15 +44,20 @@
     {% include 'footer.html' %}
 
     <!-- MDB -->
-    <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+    <!-- <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script> -->
 
-    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 
-    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+        crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 
-    
+
     <!-- Custom scripts -->
     <script type="{% static 'text/javascript' %}"></script>
 

@@ -3,7 +3,7 @@
 {% block content %}
 
 <!-- Start your project here-->
-<h2 class="text-center mt-4">Bienvenue sur Iblog</h2>
+<h1 class="text-center mt-4" style="font-size: 70px;">Bienvenue sur Iblog</h1>
 <h6 class="text-center mb-4">C'est une plate-forme de recherche de toute les types et catégories d'hotel de Madagascar</h6>
 <div class="container">
   <div class="row">
@@ -28,7 +28,7 @@
           </h5>
           <p class="card-text"> {{ hotel.desc|truncatewords:8 }} </p>
           <p class="card-text" style="font-size: 12px;"> Publier il y a {{ hotel.created_at|timesince }} </p>
-          <a href="{% url 'detail' hotel.id %}" class="btn btn-light" style="font-size: 13px;">Plus d'Infos <i class="fa fa-hand-point-right fa-lg text-info fa-flip-horizontal"></i></a>
+          <a href="{% url 'detail' hotel.id %}" class="btn btn-light" style="font-size: 13px;">Plus d'Infos <i class="fa fa-chevron-circle-right fa-lg"></i></a>
         </div>
       </div>
     </div>
